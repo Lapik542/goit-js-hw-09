@@ -1,11 +1,6 @@
 import SimpleLightbox from "simplelightbox"
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-window.initializeGallery = function() {
-  console.log('Gallery initialized');
-};
-
-
 const images = [
     {
       preview:
