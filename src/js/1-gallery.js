@@ -77,7 +77,7 @@ const images = [
    </li>
   `, '');
 
-let lightbox = new SimpleLightbox('.gallery a', { 
+const lightbox = new SimpleLightbox('.gallery a', { 
    captionsData: 'alt',
    captionDelay: 250,
 });
