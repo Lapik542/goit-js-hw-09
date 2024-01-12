@@ -21,12 +21,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
+  const isFormValid = () => {
+    return emailInput.value.trim() !== '' && messageTextarea.value.trim() !== '';
+  };
+
   feedbackForm.addEventListener('input', function () {
     trimAndSaveToLocalStorage();
   });
 
   feedbackForm.addEventListener('submit', function (event) {
-    event.preventDefault();
+    if (!isFormValid()) {
+      event.preventDefault();
+      alert('Please fill in all fields before submitting the form.');
+      return;
+    }
 
     const formData = {
       email: emailInput.value.trim(),
@@ -38,6 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.removeItem('feedback-form-state');
     feedbackForm.reset();
   });
-   
+
   populateFormFromLocalStorage();
 });
