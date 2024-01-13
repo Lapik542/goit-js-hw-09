@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   feedbackForm.addEventListener('submit', function (event) {
     if (!isFormValid()) {
-      event.preventDefault();
       alert('Please fill in all fields before submitting the form.');
       return;
     }
@@ -44,7 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Form Data:', formData);
 
     localStorage.removeItem('feedback-form-state');
-    feedbackForm.reset();
+     feedbackForm.reset();
+     event.preventDefault();
   });
 
   populateFormFromLocalStorage();
