@@ -25,8 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
     return emailInput.value.trim() !== '' && messageTextarea.value.trim() !== '';
   };
 
-  feedbackForm.addEventListener('input', function () {
+  feedbackForm.addEventListener('input', function (event) {
     trimAndSaveToLocalStorage();
+    event.preventDefault();
   });
 
   feedbackForm.addEventListener('submit', function (event) {
@@ -44,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     localStorage.removeItem('feedback-form-state');
      feedbackForm.reset();
-     event.preventDefault();
   });
 
   populateFormFromLocalStorage();
